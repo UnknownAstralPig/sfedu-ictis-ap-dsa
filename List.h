@@ -22,6 +22,9 @@ struct DoublyList {
 
 namespace ListNS {
 
+	template<typename TYPE>
+	int deleteNode(DoublyList<TYPE>* list , DoublyListNode<TYPE>* node ) ;
+
     /**
     * TODO Implement function that initialize new @DoublyList.
     * @tparam TYPE the type of stored in list information.

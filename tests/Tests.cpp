@@ -170,9 +170,8 @@ int ListTestsNS::test() {
             break;
         }
         errors += (newFound != found->next);
-        newFound->previous->next = newFound->next;
-        newFound->next->previous = newFound->previous;
-        delete newFound;
+	ListNS::deleteNode( list , newFound ) ;
+
     }
 
     ArrayNS::deleteArray(arr);
