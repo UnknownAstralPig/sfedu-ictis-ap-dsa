@@ -48,11 +48,7 @@ namespace ListNS
 		if (!list->head)
 			return NULL;
 
-		for (end = list->tail, beg = list->head; beg != end && beg->previous != end ; end = end->previous, beg = beg->next)
-			if (end->key == value)
-				return end;
-			else if(beg->key == value)
-				return beg;
+		for (end = list->tail, beg = list->head; beg != end && beg->previous != end && end->key != value && beg->key != value  ; end = end->previous, beg = beg->next) ;
 
 		if (end->key == value)
 			return end;
