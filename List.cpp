@@ -1,6 +1,6 @@
 #include <List.h>
 #include <cstddef>
-		#include <iostream>
+#include <iostream>
 
 namespace ListNS
 {
@@ -48,11 +48,17 @@ namespace ListNS
 		if (!list->head)
 			return NULL;
 
-		for (end = list->tail, beg = list->head; end != beg && beg->next != end ; end = end->previous, beg = beg->next)
+		for (end = list->tail, beg = list->head; beg != end && beg->previous != end ; end = end->previous, beg = beg->next)
 			if (end->key == value)
 				return end;
 			else if(beg->key == value)
 				return beg;
+
+		if (end->key == value)
+			return end;
+		else if(beg->key == value)
+			return beg;
+
 		return NULL;
 	}
 
