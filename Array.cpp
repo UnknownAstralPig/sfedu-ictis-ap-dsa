@@ -24,10 +24,14 @@ namespace ArrayNS {
     template<typename TYPE>
     TYPE* find(Array<TYPE>* arr, TYPE value)
     {
-        for (int i = 0; i < arr->size; ++i)
-            if (arr->array[i] == value)
-                return &arr->array[i];
-        return NULL;
+    	int i ;
+        for ( i = 0 ; i < arr->size && value != arr->array[ i ] ; i++ ) ;
+
+	
+       	if ( i - arr->size )
+		return &arr->array[ i ] ;
+	else
+	        return NULL;
     }
 
     template<typename TYPE>

@@ -12,15 +12,10 @@ namespace QueueNS {
     template<typename TYPE>
     int enqueue(Queue<TYPE>* queue, TYPE value)
     {
-        QueueNode<TYPE>* tmp;
-
         if (!queue->head)
             queue->head = queue->tail = new QueueNode<TYPE>{ value , NULL };
         else
-	{
-	    queue->tail->next = new QueueNode<TYPE>{ value , NULL } ;
-	    queue->tail = queue->tail->next ;
-	}
+	    queue->tail = queue->tail->next = new QueueNode<TYPE>{ value , NULL } ;
 
         return 1;
     }
@@ -42,17 +37,15 @@ namespace QueueNS {
     template<typename TYPE>
     void deleteQueue(Queue<TYPE>* queue)
     {
-        QueueNode<TYPE>* tmp;
-
         if (!queue)
             return;
 
         if( queue->head )
             do
             {
-                tmp = queue->head->next;
+                queue->tail = queue->head->next;
                 delete queue->head;
-                queue->head = tmp;
+                queue->head = queue->tail ;
             } while (queue->head);
         delete queue;
 
