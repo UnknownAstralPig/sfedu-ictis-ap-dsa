@@ -48,14 +48,12 @@ namespace ListNS
 		if (!list->head)
 			return NULL;
 
-		for (end = list->tail, beg = list->head; end != beg && beg->next != end && end->key != value && beg->key != value; end = end->previous, beg = beg->next);
-
-		if (end->key == value)
-			return end;
-		else if(beg->key == value)
-			return beg;
-		else
-			return NULL;
+		for (end = list->tail, beg = list->head; end != beg && beg->next != end ; end = end->previous, beg = beg->next)
+			if (end->key == value)
+				return end;
+			else if(beg->key == value)
+				return beg;
+		return NULL;
 	}
 
 	template<typename TYPE>
