@@ -6,7 +6,7 @@ Data Structure algorithms using C++ for course 'Algorithmization and programming
 
 # Semester II
 
-## Lab #2. Data Structurs.
+## Lab #2. Data Structures.
 
 ### Target
 
